@@ -1,1 +1,9 @@
 
+### 5. Add content to `.gitignore`
+
+Open `.gitignore` and add:
+
+```text
+__pycache__/
+.venv/
+.pytest_cache/
