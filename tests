@@ -1,1 +1,27 @@
 
+import string
+import unittest
+
+from main import generate_password
+
+
+class TestPasswordGenerator(unittest.TestCase):
+
+    def test_password_length(self):
+        password = generate_password(12)
+        self.assertEqual(len(password), 12)
+
+    def test_password_is_string(self):
+        password = generate_password(16)
+        self.assertIsInstance(password, str)
+
+    def test_password_contains_valid_characters(self):
+        password = generate_password(20)
+        allowed = set(string.ascii_letters + string.digits + string.punctuation)
+
+        for char in password:
+            self.assertIn(char, allowed)
+
+
+if __name__ == "__main__":
+    unittest.main()
